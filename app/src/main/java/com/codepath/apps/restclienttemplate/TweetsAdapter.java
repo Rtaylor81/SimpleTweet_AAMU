@@ -47,7 +47,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
     @Override
     public int getItemCount() {
         return tweets.size();
-     }
+    }
     public void clear(){
         tweets.clear();
         notifyDataSetChanged();
@@ -58,28 +58,28 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         notifyDataSetChanged();
     }
 
-        // Define a viewholder
-        public class ViewHolder extends RecyclerView.ViewHolder {
+    // Define a viewholder
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-            ImageView ivProfileImage;
-            TextView tvBody;
-            TextView tvScreenName;
+        ImageView ivProfileImage;
+        TextView tvBody;
+        TextView tvScreenName;
 
 
-            public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView) {
 
-                super(itemView);
-                ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
-                tvBody = itemView.findViewById(R.id.tvBody);
-                tvScreenName = itemView.findViewById(R.id.tvScreenName);
-            }
-
-            public void bind(Tweet tweet) {
-                tvBody.setText(tweet.body);
-                tvScreenName.setText(tweet.user.screenName);
-                Glide.with(context).load(tweet.user.profileImageUrl).into(ivProfileImage);
-            }
+            super(itemView);
+            ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
+            tvBody = itemView.findViewById(R.id.tvBody);
+            tvScreenName = itemView.findViewById(R.id.tvScreenName);
         }
 
-
+        public void bind(Tweet tweet) {
+            tvBody.setText(tweet.body);
+            tvScreenName.setText(tweet.user.screenName);
+            Glide.with(context).load(tweet.user.profileImageUrl).into(ivProfileImage);
+        }
     }
+
+
+}

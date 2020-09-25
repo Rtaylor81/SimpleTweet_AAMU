@@ -40,10 +40,10 @@ public class ComposeActivity extends AppCompatActivity {
         btnTweet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String tweetContent = etCompose.getText().toString();
+                final String tweetContent = etCompose.getText().toString();
                 if (tweetContent.isEmpty()){
                     Toast.makeText(ComposeActivity.this, "Sorry your tweet cannot be empty", Toast.LENGTH_LONG).show();
-                return;
+                    return;
                 }
                 if (tweetContent.length() > MAX_TWEET_LENGTH){
                     Toast.makeText(ComposeActivity.this, "Sorry your tweet is too long", Toast.LENGTH_LONG).show();
@@ -71,7 +71,7 @@ public class ComposeActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
-                    Log.e(TAG, "onFailure to publish tweet!", throwable);
+                        Log.e(TAG, "onFailure to publish tweet!", throwable);
                     }
                 });
             }
