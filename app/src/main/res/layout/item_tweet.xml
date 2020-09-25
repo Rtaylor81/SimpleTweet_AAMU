@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/ivProfileImage"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
@@ -22,7 +22,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_toEndOf="@+id/ivProfileImage"
-        android:text="rpanmdey1234" />
+        android:text="rpanmdey1234"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tvBody"
@@ -32,5 +34,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="2dp"
         android:layout_toEndOf="@+id/ivProfileImage"
-        android:text="This is my tweet!!!" />
+        android:text="This is my tweet!!!"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="14sp" />
 </RelativeLayout>
