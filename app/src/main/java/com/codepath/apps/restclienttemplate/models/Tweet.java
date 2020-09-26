@@ -35,7 +35,8 @@ public class Tweet {
     public User user;
 
     // Empty constructor needed by the Parceler library
-    public Tweet() {}
+    public Tweet() {
+    }
 
     public static Tweet fromJson(JSONObject jsonObject) throws JSONException {
         Tweet tweet = new Tweet();
@@ -50,7 +51,7 @@ public class Tweet {
 
     public static List<Tweet> fromJsonArray(JSONArray jsonArray) throws JSONException {
         List<Tweet> tweets = new ArrayList<>();
-        for (int i = 0; i < jsonArray.length(); i++){
+        for (int i = 0; i < jsonArray.length(); i++) {
             tweets.add(fromJson(jsonArray.getJSONObject(i)));
         }
         return tweets;

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +24,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.parceler.Parcels;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import okhttp3.Headers;
@@ -45,11 +48,8 @@ public class TimelineActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
-
         client = TwitterApp.getRestClient(this);
         tweetDao = ((TwitterApp) getApplicationContext()).getMyDatabase().tweetDao();
-
-
         swipeContainer = findViewById(R.id.swipeContainer);
         // Configure the refreshing colors
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
@@ -64,6 +64,10 @@ public class TimelineActivity extends AppCompatActivity {
             }
         });
 
+        Calendar calendar = Calendar.getInstance();
+        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        TextView textViewDate = findViewById(R.id.text_view_date);
+        textViewDate.setText(currentDate);
         // Find the recyclerview
         rvTweets = findViewById(R.id.rvTweets);
         // Initialize the list of tweets and adapter
@@ -167,7 +171,7 @@ public class TimelineActivity extends AppCompatActivity {
                 try {
                     final List<Tweet> tweetsFromNetwork = Tweet.fromJsonArray(jsonArray);
                     adapter.clear();
-                        adapter.addAll(tweetsFromNetwork);
+                    adapter.addAll(tweetsFromNetwork);
                     // Now we call setRefreshing(false) to signal refresh has finished
                     swipeContainer.setRefreshing(false);
                     AsyncTask.execute(new Runnable() {
