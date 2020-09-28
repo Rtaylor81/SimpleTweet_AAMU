@@ -43,7 +43,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src="SimpleTweetWalkthrough2_1.gif" width="250"/> <img src="SimpleTweetWalkthrough2_2.gif" width="100"/> 
+<img src="SimpleTweetWalkthrough2_1.gif" width="250"/> <img src="SimpleTweetWalkthrough2_2.gif" width="250"/> 
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
